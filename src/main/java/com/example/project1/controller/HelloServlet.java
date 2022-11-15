@@ -1,10 +1,11 @@
 package com.example.project1.controller;
 
-import com.example.project1.model.DAO;
+import com.example.project1.model.DishDAO;
 import com.example.project1.model.Dish;
 
 import java.io.*;
 import java.util.ArrayList;
+import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
@@ -16,18 +17,13 @@ public class HelloServlet extends HttpServlet {
         message = "Hello World!";
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
 
-        ArrayList<Dish> disharr = DAO.instance.getDishes();
-        for (Dish d : disharr) {
-            System.out.println(d);
-        }
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        ArrayList<Dish> dishes = DishDAO.instance.getDishes();
+
+        request.setAttribute("dishes", dishes);
+        request.getRequestDispatcher("dishes.jsp").forward(request, response);
     }
 
     public void destroy() {

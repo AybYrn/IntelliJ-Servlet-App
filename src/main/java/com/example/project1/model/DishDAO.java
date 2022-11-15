@@ -3,10 +3,10 @@ package com.example.project1.model;
 import java.sql.*;
 import java.util.ArrayList;
 
-public enum DAO {
+public enum DishDAO {
     instance;
     private final Connection connection;
-    DAO() {
+    DishDAO() {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException e) {
@@ -45,8 +45,7 @@ public enum DAO {
                         res.getInt("avg_rate")));
             }
 
-//            stmt.close();
-//            connection.close();
+            stmt.close();
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

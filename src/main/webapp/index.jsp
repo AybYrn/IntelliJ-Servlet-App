@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>WELCOME</title>
 
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>" />
     <link href="<c:url value="/css/index.css"/>" rel="stylesheet" />

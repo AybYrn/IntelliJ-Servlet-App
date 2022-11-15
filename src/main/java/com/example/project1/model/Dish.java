@@ -41,12 +41,20 @@ public class Dish {
         return ingredient;
     }
 
+    public String[] getIngredientArray(){
+        return ingredient.split(" - ");
+    }
+
     public void setIngredient(String ingredient) {
         this.ingredient = ingredient;
     }
 
     public String getInstruction() {
         return instruction;
+    }
+
+    public String[] getInstructionArray(){
+        return instruction.split("\\\\n");
     }
 
     public void setInstruction(String instruction) {
