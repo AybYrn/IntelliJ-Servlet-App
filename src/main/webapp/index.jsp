@@ -16,21 +16,21 @@
 
     <div class="row">
         <div class="col">
-            <form action="" method="POST">
+            <form action="/" method="POST">
                 <h1 class="h3 m-5 fw-normal fw-bold" style="color: orangered">Sign in</h1>
 
                 <div class="form-floating mb-2">
-                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                    <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword">Password</label>
                 </div>
 
                 <div class="checkbox mt-3" style="color: orangered">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" name="rememberMeCB" value="remember-me"> Remember me
                     </label>
                 </div>
                 <button class="w-100 btn btn-lg btn-light btn-outline-dark fw-bold" type="submit">Sign in</button>
@@ -40,23 +40,23 @@
             <!--<div class="vr" style="height: 100%; width: 3px; color: #ffc107; border: 1px solid orangered; box-shadow: 0px 0px 8px orangered ;"></div>-->
         </div>
         <div class="col">
-            <form action="" method="POST">
+            <form action="/RegisterServlet" method="POST">
                 <h1 class="h3 m-5 fw-normal fw-bold" style="color: orangered">Register</h1>
 
                 <div class="form-floating mb-2">
-                    <input type="text" class="form-control" id="name" placeholder="name">
+                    <input type="text" name="userName" class="form-control" id="name" placeholder="name">
                     <label for="name">Name</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
                     <label for="email">Email address</label>
                 </div>
                 <div class="form-floating mb-2">
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                     <label for="password">Password</label>
                 </div>
                 <div class="form-floating">
-                    <input type="password" class="form-control" id="repassword" placeholder="rePassword">
+                    <input type="password" name="rePassword" class="form-control" id="repassword" placeholder="rePassword">
                     <label for="repassword">Repeat Password</label>
                 </div>
 

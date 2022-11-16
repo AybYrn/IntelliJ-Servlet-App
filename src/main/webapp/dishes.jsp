@@ -7,19 +7,30 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<jsp:useBean id="dishes" scope="request" type="java.util.List<com.example.project1.model.Dish>"/>
+<jsp:useBean id="dishes" scope="request" type="java.util.ArrayList<com.example.project1.model.Dish>"/>
+
 <html>
 <head>
     <title>DISHES</title>
 
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>" />
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <script src="./js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-    <div class="row justify-content-center">
+<h2 class="text-uppercase text-center text-warning m-3 fw-lighter">WELCOME ${sessionScope.user.user_name} TO COOK BOOK</h2>
+<a type="button" class="navbar-brand m-4 text-black text-uppercase" >
+    <i class="bi bi-plus-square-fill"></i>
+    New Dish
+</a>
+<a type="button" class="navbar-brand m-4 text-black text-uppercase">
+<i class="bi bi-journals"></i>
+See All Dishes
+</a>
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center bg-dark">
+
         <c:forEach items="${dishes}" var="dishes">
-            <div class="col-4 m-3 p-2 card">
+            <div class="col-4 m-3 p-2 card border-light">
                 <img src="./assets/<c:out value="${dishes.photo}"/>" class="card-img-top" style=" max-height: 100%">
                 <div class="card-body">
                     <h5 class="card-title"><c:out value="${dishes.dish_name}" />    <c:out value="${dishes.number_of_rate}" />
