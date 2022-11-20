@@ -5,9 +5,10 @@
 <head>
     <title>WELCOME</title>
 
-    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>" />
-    <link href="<c:url value="/css/index.css"/>" rel="stylesheet" />
-    <script src="./js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>" />
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">--%>
+        <script src="./js/bootstrap.bundle.min.js"></script>
+<%--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>--%>
 
 </head>
 <body class="text-center" data-new-gr-c-s-check-loaded="14.1085.0" data-gr-ext-installed="">
@@ -16,7 +17,7 @@
 
     <div class="row">
         <div class="col">
-            <form action="/" method="POST">
+            <form action="/LoginServlet" method="POST">
                 <h1 class="h3 m-5 fw-normal fw-bold" style="color: orangered">Sign in</h1>
 
                 <div class="form-floating mb-2">

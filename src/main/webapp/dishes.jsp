@@ -14,12 +14,14 @@
     <title>DISHES</title>
 
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>" />
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">--%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+<%--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>--%>
     <script src="./js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <h2 class="text-uppercase text-center text-warning m-3 fw-lighter">WELCOME ${sessionScope.user.user_name} TO COOK BOOK</h2>
-<a type="button" class="navbar-brand m-4 text-black text-uppercase" >
+<a type="button" class="navbar-brand m-4 text-black text-uppercase"  href="insert.jsp">
     <i class="bi bi-plus-square-fill"></i>
     New Dish
 </a>
