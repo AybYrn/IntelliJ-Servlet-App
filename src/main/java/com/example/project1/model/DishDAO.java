@@ -24,6 +24,38 @@ public enum DishDAO {
 
     }
 
+    public ArrayList<Dish> getDishes(int id) {
+        ArrayList<Dish> dishArr = new ArrayList<>();
+        PreparedStatement pstmt = null;
+
+        try {
+
+            pstmt = this.connection.prepareStatement("SELECT * FROM dishes WHERE USER_ID = ?");
+            pstmt.setInt(1, id);
+            ResultSet res = pstmt.executeQuery();
+
+            while(res.next()) {
+                dishArr.add(new Dish(
+                        res.getInt("dish_id"),
+                        res.getString("dish_name"),
+                        res.getString("provided_by"),
+                        res.getString("ingredient"),
+                        res.getString("instruction"),
+                        res.getString("photo"),
+                        res.getInt("number_of_rate"),
+                        res.getInt("avg_rate")));
+            }
+
+            pstmt.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+
+        return dishArr;
+    }
+
     public ArrayList<Dish> getDishes() {
         ArrayList<Dish> dishArr = new ArrayList<>();
         Statement stmt = null;

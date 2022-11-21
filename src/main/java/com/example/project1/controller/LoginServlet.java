@@ -29,20 +29,27 @@ public class LoginServlet extends HttpServlet {
                 cookie_password = cookie.getValue();
             }
         }
-        User user;
+        User user = null;
 
-        if (cookie_email != null && cookie_password != null && (user = UserDAO.instance.checkUserPassword(cookie_email, cookie_password)) != null){
+        if (cookie_email != null && cookie_password != null && (user = UserDAO.instance.checkUserPassword(cookie_email, cookie_password)) != null ){
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            System.out.println(user);
-            ArrayList<Dish> dishes = DishDAO.instance.getDishes();
+            ArrayList<Dish> dishes = DishDAO.instance.getDishes(user.getUser_id());
 
             request.setAttribute("dishes", dishes);
             request.getRequestDispatcher("dishes.jsp").forward(request, response);
         }
         else {
+            HttpSession session = request.getSession();
+            if(session.getAttribute("user") != null){
+                ArrayList<Dish> dishes = DishDAO.instance.getDishes((int)session.getAttribute("user_id"));
+
+                request.setAttribute("dishes", dishes);
+                request.getRequestDispatcher("dishes.jsp").forward(request, response);
+            }
             request.getRequestDispatcher("index.jsp").forward(request, response);
         }
+
     }
 
     @Override
@@ -55,6 +62,7 @@ public class LoginServlet extends HttpServlet {
 
         if(user != null){
             session.setAttribute("user", user);
+            session.setAttribute("user_id", user.getUser_id());
             if (request.getParameter("rememberMeCB") != null){
                 Cookie email_cookie = new Cookie("user_email", user.getUser_email());
                 Cookie password_cookie = new Cookie("user_password", user.getUser_password());
@@ -65,11 +73,10 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(email_cookie);
                 response.addCookie(password_cookie);
             }
+            ArrayList<Dish> dishes = DishDAO.instance.getDishes(user.getUser_id());
+
+            request.setAttribute("dishes", dishes);
+            request.getRequestDispatcher("dishes.jsp").forward(request, response);
         }
-
-        ArrayList<Dish> dishes = DishDAO.instance.getDishes();
-
-        request.setAttribute("dishes", dishes);
-        request.getRequestDispatcher("dishes.jsp").forward(request, response);
     }
 }

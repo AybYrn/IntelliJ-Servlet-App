@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
 
 html,
 body {
     height: 100%;
-    font-family: 'Source Code Pro', monospace;
+    font-family: 'Rubik', sans-serif;
     letter-spacing: 2px;
     background: linear-gradient(90deg,
-                rgb(250 235 215 / 95%) 0%,
-                rgb(255 147 0 / 81%) 49%,
-                rgb(255 255 255 / 44%) 50%,
-                rgb(255 146 0 / 81%) 51%,
-                rgba(250, 235, 215, 0.95) 100%);
+                                    rgb(255 255 255 / 95%) 0%,
+                                    rgb(255 135 135 / 22%) 49%,
+                                    rgb(255 255 255 / 44%) 50%,
+                                    rgb(255 135 135 / 22%) 51%,
+                                    rgb(255 255 255 / 95%) 100%);
 }
 
 body {
@@ -31,12 +31,12 @@ div.form-floating {
 }
 
 *:focus {
-    outline-color: orangered;
+    outline-color: white;
 }
 
 .form-control:focus {
-    border-color: #ffc107;
-    box-shadow: 0 0 3px rgba(0, 0, 0, 2), 0px 0px 15px 1px #ffc107;
+    border-color: white;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 2), 0px 0px 15px 1px rgba(255, 135, 135, 0.53);
 }
 
 .form-signin {

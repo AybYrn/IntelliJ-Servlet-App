@@ -15,7 +15,6 @@ public class CookBookServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Dish> dishes = DishDAO.instance.getDishes();
         HttpSession session = request.getSession();
-        System.out.println(session.getAttribute("user"));
         request.setAttribute("dishes", dishes);
         request.getRequestDispatcher("dishes.jsp").forward(request, response);
     }
