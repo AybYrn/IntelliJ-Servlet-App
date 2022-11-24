@@ -52,7 +52,7 @@ public enum UserDAO {
         return null;
     }
 
-    public User registerUser(String name, String email, String password){
+    public User registerUser(String name, String email, String password) throws RuntimeException{
         PreparedStatement pstm;
 
         try {

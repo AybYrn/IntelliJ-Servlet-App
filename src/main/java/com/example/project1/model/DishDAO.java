@@ -44,6 +44,7 @@ public enum DishDAO {
                         res.getString("photo"),
                         res.getInt("number_of_rate"),
                         res.getInt("avg_rate")));
+                System.out.println(dishArr.get(dishArr.size()-1));
             }
 
             pstmt.close();
@@ -85,6 +86,35 @@ public enum DishDAO {
         }
 
         return dishArr;
+    }
+
+    public Dish insertDish(int user_id, String dish_name, String provided_by, String ingredient, String instructions,
+                           String photo,int rate){
+        PreparedStatement pstm = null;
+        Dish dish = null;
+        try{
+            pstm = this.connection.prepareStatement("INSERT INTO DISHES (USER_ID, DISH_NAME, PROVIDED_BY, INGREDIENT, INSTRUCTION, PHOTO, NUMBER_OF_RATE, AVG_RATE) " +
+                                        "VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+
+            pstm.setInt(1, user_id);
+            pstm.setString(2, dish_name);
+            pstm.setString(3, provided_by);
+            pstm.setString(4, ingredient);
+            pstm.setString(5, instructions);
+            pstm.setString(6, photo);
+            pstm.setInt(7, 1);
+            pstm.setInt(8, rate);
+
+            pstm.execute();
+            dish = new Dish(user_id, dish_name, provided_by, ingredient, instructions, photo,1,rate);
+
+            pstm.close();
+
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+
+        return dish;
     }
 
 }

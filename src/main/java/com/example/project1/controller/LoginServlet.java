@@ -30,9 +30,8 @@ public class LoginServlet extends HttpServlet {
             }
         }
         User user = null;
-
+        HttpSession session = request.getSession();
         if (cookie_email != null && cookie_password != null && (user = UserDAO.instance.checkUserPassword(cookie_email, cookie_password)) != null ){
-            HttpSession session = request.getSession();
             session.setAttribute("user", user);
             ArrayList<Dish> dishes = DishDAO.instance.getDishes(user.getUser_id());
 
@@ -40,14 +39,17 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("dishes.jsp").forward(request, response);
         }
         else {
-            HttpSession session = request.getSession();
+
             if(session.getAttribute("user") != null){
-                ArrayList<Dish> dishes = DishDAO.instance.getDishes((int)session.getAttribute("user_id"));
+                User u = (User)session.getAttribute("user");
+                ArrayList<Dish> dishes = DishDAO.instance.getDishes(u.getUser_id());
 
                 request.setAttribute("dishes", dishes);
                 request.getRequestDispatcher("dishes.jsp").forward(request, response);
             }
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+            else{
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
         }
 
     }
@@ -62,7 +64,6 @@ public class LoginServlet extends HttpServlet {
 
         if(user != null){
             session.setAttribute("user", user);
-            session.setAttribute("user_id", user.getUser_id());
             if (request.getParameter("rememberMeCB") != null){
                 Cookie email_cookie = new Cookie("user_email", user.getUser_email());
                 Cookie password_cookie = new Cookie("user_password", user.getUser_password());

@@ -38,34 +38,39 @@
                         <h5 class="modal-title" id="exampleModalLabel">Insert a Dish</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <table class="table table-striped">
-                            <tr>
-                                <td class="text-warning">Name of the Dish: </td>
-                                <td><input type="text" name="nameofdish" id="nameofdish"></td>
-                            </tr>
-                            <tr>
-                                <td class="text-warning">Enter Your Name: </td>
-                                <td><input type="text" name="username" id="username"></td>
-                            </tr>
-                            <tr>
-                                <td class="text-warning">Rate: </td>
-                                <td><input type="text" name="rate" id="rate"></td>
-                            </tr>
-                            <tr>
-                                <td class="text-warning">Ingredients: </td>
-                                <td><textarea name="ingredients" id="ingredients" cols="50" rows="10"></textarea></td>
-                            </tr>
-                            <tr>
-                                <td class="text-warning">Instructions: </td>
-                                <td><textarea name="instructions" id="instructions" cols="50" rows="10"></textarea></td>
-                            </tr>
-
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-outline-light" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-warning btn-outline-light">Save changes</button>
+                    <div class="modal-body ps-5">
+                        <form action="${pageContext.request.contextPath}/CookBookServlet" method="POST" enctype="multipart/form-data">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td class="text-warning">Name of the Dish: </td>
+                                    <td><input type="text" name="nameofdish" id="nameofdish"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">Rate: </td>
+                                    <td><input type="text" name="rate" id="rate"></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">Ingredients: </td>
+                                    <td><textarea name="ingredients" id="ingredients" cols="50" rows="10"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">Instructions: </td>
+                                    <td><textarea name="instructions" id="instructions" cols="50" rows="10"></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">
+                                        <label for="formFile" class="form-label">Choose a Photo: </label>
+                                    </td>
+                                    <td >
+                                        <input class="form-control border-warning" name="photo" style="width: 400px;" type="file" id="formFile">
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger btn-outline-light" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-warning btn-outline-light">Save changes</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -90,15 +95,18 @@
                 <div class="card-body">
                     <h5 class="card-title">
                         <c:out value="${dishes.dish_name}" />
-                        <c:out value="${dishes.number_of_rate}" />
-    <%--                    <div class="ratings">--%>
-    <%--                        <i class="bi bi-star"></i>--%>
-    <%--                        <i class="bi bi-star"></i>--%>
-    <%--                        <i class="fa fa-star rating-color"></i>--%>
-    <%--                        <i class="fa fa-star rating-color"></i>--%>
-    <%--                        <i class="fa fa-star"></i>--%>
-    <%--                    </div>--%>
-                        <c:out value="${dishes.avg_rate}"/>
+                        <br/>
+                        <span class="text-black-50"># of rates: <c:out value="${dishes.number_of_rate}" /></span>
+                        <div class="ratings">
+                            <c:forEach begin="1" end="${dishes.avg_rate}" step="1">
+                                <i class="bi bi-star-fill text-warning"></i>
+                            </c:forEach>
+                            <c:forEach begin="1" end="${5 - dishes.avg_rate}" step="1">
+                                <i class="bi bi-star"></i>
+
+                            </c:forEach>
+
+                        </div>
                     </h5>
                     <p class="card-subtitle mb-2 text-muted">By <c:out value="${dishes.provided_by}" /></p>
                     <p class="card-text">

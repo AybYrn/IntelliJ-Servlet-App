@@ -26,11 +26,18 @@ public class RegisterServlet extends HttpServlet {
         String rePassword = request.getParameter("rePassword");
 
         HttpSession session = request.getSession();
-        User user = UserDAO.instance.registerUser(userName, email, password);
+        User user = null;
+        try{
+             user = UserDAO.instance.registerUser(userName, email, password);
+        }catch (Exception e){
+            request.setAttribute("register_error", "email");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
 
         if(user != null){
             session.setAttribute("user", user);
-            ArrayList<Dish> dishes = DishDAO.instance.getDishes();
+            User u = (User)session.getAttribute("user");
+            ArrayList<Dish> dishes = DishDAO.instance.getDishes(u.getUser_id());
 
             request.setAttribute("dishes", dishes);
             request.getRequestDispatcher("dishes.jsp").forward(request, response);

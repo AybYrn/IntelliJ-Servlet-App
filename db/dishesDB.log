@@ -1,37 +1,36 @@
-/*C2*/SET SCHEMA PUBLIC
-INSERT INTO DISHES VALUES(11,0,'Super berry smoothie','Good Food team',' ','450g bag frozen berry - 450g pot fat-free strawberry yogurt - 100ml milk - 25g porridge oat - 2 tsp honey, Whizz the berries, yogurt and milk together with a stick blender until smooth. Stir through the porridge oats, then pour into 4 glasses and serve with a drizzle of honey, if you like.','berrysmoothie.PNG',20,4)
+/*C21*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE USER_ID=7
 COMMIT
-/*C7*/SET SCHEMA PUBLIC
+DELETE FROM USER WHERE USER_ID=8
+COMMIT
+DELETE FROM USER WHERE USER_ID=9
+COMMIT
+/*C24*/SET SCHEMA PUBLIC
+DELETE FROM DISHES WHERE DISH_ID=11
+COMMIT
+/*C25*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C5*/SET SCHEMA PUBLIC
+/*C22*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C6*/SET SCHEMA PUBLIC
+/*C26*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C4*/SET SCHEMA PUBLIC
+/*C27*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C8*/SET SCHEMA PUBLIC
+/*C28*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C3*/SET SCHEMA PUBLIC
+/*C23*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C9*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C10*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C16*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C13*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C14*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C15*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C49*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C50*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C55*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C61*/SET SCHEMA PUBLIC
-DISCONNECT
-/*C67*/SET SCHEMA PUBLIC
-DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+INSERT INTO DISHES VALUES(12,0,'Cauliflower soup','Aybuke Yaren','1 large cauliflower (1.5kg), cut into florets\u000d\u000a\u00c2\u00bd tbsp ground cumin\u000d\u000a2 tbsp olive oil, plus extra for drizzling \u000d\u000a4 thyme sprigs \u000d\u000a1 onion, finely chopped \u000d\u000a1 celery stick, finely chopped \u000d\u000a1 garlic clove, crushed\u000d\u000a750-850ml veg or chicken stock \u000d\u000a100ml single cream \u000d\u000a\u00c2\u00bd small bunch of parsley, finely chopped','STEP 1\u000d\u000aHeat the oven to 220C/200C fan/gas 7. Toss the cauliflower florets in a roasting tin with 1 tbsp olive oil, the cumin and the thyme. Roast for 15 mins or until golden and tender. Discard the thyme.\u000d\u000aSTEP 2\u000d\u000aHeat the remaining oil in a saucepan with the onion and celery and fry over a medium heat for 10 mins or until softened. Add the garlic and cook for 1 min. Stir through most of the cauliflower, reserving some to top the soup with later. Add 750ml of the stock to the pan and bring to a simmer. Cook for 10 mins.\u000d\u000aSTEP 3\u000d\u000aBlitz the soup until smooth using a hand blender or food processor. Stir through the cream and season to taste. Add extra stock if you like your soup a little thinner. Ladle into bowls and top with the parsley, reserved cauliflower and an extra drizzle of olive oil.','cauliflowersoup.PNG',1,3)
+COMMIT
+/*C24*/DISCONNECT
+/*C32*/INSERT INTO DISHES VALUES(14,6,'Vegan millionaire''s shortbread','Huseyin Emre Kolcu','For the base 150g cash ew nuts - 50g rolled oat - 4 medjool dates, pitted- 50g coconut oil, melted - "\u000d\u000a         ">> For the filling 350g pitted medjool dates - 125ml unsweetened almond milk - 25ml maple syrup - "\u000d\u000a         "150g coconut oil - 1 tsp vanilla extract - >> For the topping 150g coconut oil - 5 tbsp cocoa powder "\u000d\u000a         "- 2 tsp maple syrup','STEP 1\u000d\u000aGrease a 20cm square cake tin and line with baking parchment. Tip the cashew nuts and oats into a food processer and blitz to crumbs. Add the dates and coconut oil, and blend again. Transfer to the tin and use a spoon to press the nutty mixture into a compact, even layer that covers the base. Chill while you prepare the filling.\u000d\u000aSTEP 2\u000d\u000aFor the filling, add the dates, almond milk, maple syrup and coconut oil to a saucepan with a generous pinch of salt and bring to a simmer. Boil for 2-3 mins until the dates are really soft. Cool the caramel a little, then tip into the blender, add the vanilla extract and blitz to a smooth pur\u00c3\u00a9e. The caramel will be hot so be careful when handling. Add a little more salt if the mixture is too sweet. Pour over the nutty base and spread to the sides of the tin, getting the surface as smooth as possible. Chill while you prepare the topping.','veganshortbread.PNG',1,4)
+COMMIT
+/*C20*/SET SCHEMA PUBLIC
+ALTER TABLE DISHES\u000aALTER COLUMN INGREDIENT VARCHAR(2000) 
+/*C33*/SET SCHEMA PUBLIC
+DELETE FROM DISHES WHERE DISH_ID=14
+COMMIT
+/*C20*/ALTER TABLE DISHES\u000aALTER COLUMN INSTRUCTION VARCHAR(2000) 
+/*C32*/INSERT INTO DISHES VALUES(16,6,'Vegan millionaire''s shortbread','Huseyin Emre Kolcu','For the base\u000d\u000a150g cashew nuts\u000d\u000a50g rolled oat \u000d\u000a4 medjool dates, pitted\u000d\u000a50g coconut oil, melted\u000d\u000aFor the filling \u000d\u000a350g pitted medjool dates\u000d\u000a125ml unsweetened almond milk \u000d\u000a25ml maple syrup 150g coconut oil\u000d\u000a1 tsp vanilla extract \u000d\u000aFor the topping \u000d\u000a150g coconut oil\u000d\u000a5 tbsp cocoa powder \u000d\u000a2 tsp maple syrup','STEP 1\u000d\u000aGrease a 20cm square cake tin and line with baking parchment. Tip the cashew nuts and oats into a food processer and blitz to crumbs. Add the dates and coconut oil, and blend again. Transfer to the tin and use a spoon to press the nutty mixture into a compact, even layer that covers the base. Chill while you prepare the filling.\u000d\u000aSTEP 2\u000d\u000aFor the filling, add the dates, almond milk, maple syrup and coconut oil to a saucepan with a generous pinch of salt and bring to a simmer. Boil for 2-3 mins until the dates are really soft. Cool the caramel a little, then tip into the blender, add the vanilla extract and blitz to a smooth pur\u00c3\u00a9e. The caramel will be hot so be careful when handling. Add a little more salt if the mixture is too sweet. Pour over the nutty base and spread to the sides of the tin, getting the surface as smooth as possible. Chill while you prepare the topping.\u000d\u000aSTEP 3\u000d\u000aGently heat the coconut oil in a saucepan until melted. Remove from the heat and whisk in the cocoa and maple syrup until there are no lumps. Cool for 10 mins, pour over the caramel layer and return to the fridge for at least 3 hrs or until firmly set. To serve, cut into squares.','veganshortbread.PNG',1,4)
+COMMIT

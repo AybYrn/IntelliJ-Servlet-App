@@ -49,10 +49,25 @@
                     <input type="text" name="userName" class="form-control" id="name" placeholder="name">
                     <label for="name">Name</label>
                 </div>
-                <div class="form-floating mb-2">
-                    <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
-                    <label for="email">Email address</label>
-                </div>
+               <%
+                    String err = (String) request.getAttribute("register_error");
+                    if(err != null && err.equals("email")){
+                    %>
+                    <div class="form-floating mb-2 ">
+                        <input type="email" name="email" class="form-control border-danger border-3" aria-describedby="emailerr" id="email" placeholder="name@example.com">
+                        <label for="email">Email address</label>
+                        <small class="form-text text-muted text-left" id="emailerr">Already Exist!</small>
+                    </div>
+                <%
+                }else{
+                    %>
+                    <div class="form-floating mb-2">
+                        <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com">
+                        <label for="email">Email address</label>
+                    </div>
+                    <%
+                }
+               %>
                 <div class="form-floating mb-2">
                     <input type="password" name="password" class="form-control" id="password" placeholder="Password">
                     <label for="password">Password</label>
